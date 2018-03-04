@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import scrapy
 
-
+# 方式一：通过FormRequest类实现模拟登陆：该方式只能通过重写start_requests方法修改请求才能实现
 class RenrenSpider(scrapy.Spider):
     name = 'renren'
     allowed_domains = ['renren.com']
@@ -10,8 +10,8 @@ class RenrenSpider(scrapy.Spider):
     def start_requests(self):
         # 构造post请求参数
         data = {
-            'email':'214578765@qq.com',
-            'password':'MYSELF93542'
+            'email':'账号',
+            'password':'密码'
         }
         # 发送请求
         yield scrapy.FormRequest(url=self.start_urls[0],formdata=data)
